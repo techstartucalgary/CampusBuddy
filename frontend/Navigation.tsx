@@ -2,7 +2,7 @@ import { Ionicons, FontAwesome5, MaterialCommunityIcons } from '@expo/vector-ico
 import { StatusBar } from 'expo-status-bar';
 import { Pressable, TouchableOpacity } from 'react-native';
 
-import useAppContext from './hooks/useAppContext';
+import useAppContext from './src/hooks/useAppContext';
 
 import { DarkTheme, DefaultTheme, NavigationContainer } from "@react-navigation/native"
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -10,15 +10,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import Home from "./screens/bottomTab/homeStack/Home";
-import EventDetails from './screens/bottomTab/homeStack/EventDetails';
+import Home from "./src/screens/bottomTab/homeStack/Home";
+import EventDetails from './src/screens/bottomTab/homeStack/EventDetails';
 
-import Carpool from './screens/drawer/Carpool';
+import Carpool from './src/screens/drawer/Carpool';
 
-import Marketplace from './screens/bottomTab/Marketplace';
+import Marketplace from './src/screens/bottomTab/Marketplace';
 
-import GeneralSettings from './screens/bottomTab/topTab/GeneralSettings';
-import NotificationSettings from './screens/bottomTab/topTab/Notifications';
+import GeneralSettings from './src/screens/bottomTab/topTab/GeneralSettings';
+import NotificationSettings from './src/screens/bottomTab/topTab/Notifications';
 
 
 

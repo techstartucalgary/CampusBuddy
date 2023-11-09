@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import { AppContextProvider } from './contexts/appContext';
+import { AppContextProvider } from './src/contexts/appContext';
 import Navigation from './Navigation';
 
 
