@@ -4,6 +4,7 @@ backend/.env
 backend/node_modules
 node_modules
 
+
 # Frontend ignores
 
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files

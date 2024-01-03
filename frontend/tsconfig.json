@@ -2,12 +2,12 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
-    "typeRoots": [
-      "./src/types"
-    ],
+    "typeRoots": ["./src/types"],
+    "baseUrl": "./" /* Specify the base directory to resolve non-relative module names. */,
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "@lib/*": ["../lib/*"]
     },
-    "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true
   }
 }
