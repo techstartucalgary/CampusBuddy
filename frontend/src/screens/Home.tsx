@@ -1,7 +1,8 @@
-import {Button, SafeAreaView, StyleSheet, View} from 'react-native';
+import {Button, SafeAreaView, StyleSheet, View, Text} from 'react-native';
 import {useNavigation} from '@react-navigation/native'
 import {ThemedText} from '~/components/ThemedComponents';
 import {Card} from 'react-native-paper';
+import  HorizontalScrollView  from '~/components/HorizontalScrollView';
 import useLoadingContext from '~/hooks/useLoadingContext';
 import {IP_ADDRESS} from '@env';
 
@@ -27,7 +28,7 @@ export default function Home() {
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <ThemedText>Open up App.tsx to start working on your app!</ThemedText>
             <Button title={"Test"} onPress={testCallback} />
-            <View style={styles.mockEventsContainer}>
+            {/* <View style={styles.mockEventsContainer}>
                 <Card style={styles.mockEventContainer}
                     mode='elevated' 
                     onPress={() => {
@@ -48,7 +49,17 @@ export default function Home() {
                         <ThemedText>Mock Event 2</ThemedText>
                     </Card.Content>
                 </Card>
+            </View> */}
+            
+            <View style={styles.mockEventsContainer}>
+                <HorizontalScrollView scrollTitle="Componenet Title">
+
+                </HorizontalScrollView>
+                <HorizontalScrollView scrollTitle="Componenet Title2">
+                </HorizontalScrollView>
+
             </View>
+
         </View>
     );
 }
@@ -56,9 +67,9 @@ export default function Home() {
 
 const styles = StyleSheet.create({
     mockEventsContainer: {
-        marginTop: 30,
+        marginTop: 16,
         display: 'flex',
-        flexDirection: 'row',
+        //flexDirection: 'row',
         width: '95%',
         height: 'auto',
         justifyContent: 'space-around',
@@ -68,5 +79,11 @@ const styles = StyleSheet.create({
         width: 100,
         height: 100,
         justifyContent: 'center'
+    },
+    ScrollContainer: {
+        paddingTop: 16
+    }, 
+    scrollHeader: {
+        textAlign:'left',
     }
 })
