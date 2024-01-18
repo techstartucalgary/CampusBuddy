@@ -2,9 +2,11 @@ import {Button, SafeAreaView, StyleSheet, View, Text} from 'react-native';
 import {useNavigation} from '@react-navigation/native'
 import {ThemedText} from '~/components/ThemedComponents';
 import {Card} from 'react-native-paper';
+import EventHomeCard from '~/components/EventHomeCard';
 import  HorizontalScrollView  from '~/components/HorizontalScrollView';
 import useLoadingContext from '~/hooks/useLoadingContext';
 import {IP_ADDRESS} from '@env';
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function Home() {
     const { startLoading, stopLoading } = useLoadingContext();
@@ -25,7 +27,8 @@ export default function Home() {
     const { navigate } = useNavigation<any>();
 
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ScrollView>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginBottom:200 }}>
             <ThemedText>Open up App.tsx to start working on your app!</ThemedText>
             <Button title={"Test"} onPress={testCallback} />
             {/* <View style={styles.mockEventsContainer}>
@@ -53,14 +56,21 @@ export default function Home() {
             
             <View style={styles.mockEventsContainer}>
                 <HorizontalScrollView scrollTitle="Componenet Title">
+                <EventHomeCard>
 
+                </EventHomeCard>
                 </HorizontalScrollView>
                 <HorizontalScrollView scrollTitle="Componenet Title2">
                 </HorizontalScrollView>
 
             </View>
 
+            <View>
+
+            </View>
+
         </View>
+        </ScrollView>
     );
 }
 
@@ -81,7 +91,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     ScrollContainer: {
-        paddingTop: 16
+        paddingTop: 16,
+        paddingBottom: 16,
     }, 
     scrollHeader: {
         textAlign:'left',
