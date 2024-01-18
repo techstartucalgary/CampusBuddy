@@ -14,7 +14,7 @@ type Props = PropsWithChildren<{
 
 export default function HorizontalScrollView({ scrollTitle, children }: Props){
     return (
-        <View style={{width:367, height:168, marginLeft:19, marginTop:16}}>
+        <View style={{width:367, height:168, marginLeft:0, marginTop:16}}>
             <Text style={{marginBottom:16, fontSize: 16}}>{scrollTitle}</Text>
             <ScrollView  horizontal contentContainerStyle={styles.contentContainer}>
                 {children}
@@ -25,8 +25,7 @@ export default function HorizontalScrollView({ scrollTitle, children }: Props){
 
 const styles = StyleSheet.create({
     contentContainer:{
-        backgroundColor: 'red',
-      flex: 1,  
+        flex: 1,
     },
 })
 
