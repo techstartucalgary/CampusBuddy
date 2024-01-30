@@ -1,4 +1,3 @@
-import { URL } from "@env";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import * as ImagePicker from "expo-image-picker";
@@ -10,6 +9,7 @@ import { Card, Chip } from "react-native-paper";
 import HorizontalScrollView from "~/components/HorizontalScrollView";
 import { ThemedText } from "~/components/ThemedComponents";
 import useLoadingContext from "~/hooks/useLoadingContext";
+import { getRequest } from "~/lib/CBRequest";
 import VerticalScrollView from "~/components/VerticalScrollView";
 
 
@@ -19,8 +19,8 @@ export default function Home() {
   const [image, setImage] = useState<string>();
 
   const testCallback = async () => {
-    fetch(URL + "/Test")
-      .then((response) => response.json())
+    await getRequest("/Test", {})
+      .then((response) => response)
       .then((data) => {
         console.log(data);
       })
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   ScrollContainer: {
     paddingTop: 16,
     paddingBottom: 16,
-}, 
+},
 scrollHeader: {
     textAlign:'left',
 },
