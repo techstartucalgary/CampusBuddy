@@ -15,8 +15,6 @@ import { z } from "zod";
 import imageGetter from "~/lib/imageGetter";
 import VerticalScrollView from "~/components/VerticalScrollView";
 
-
-
 export default function Home() {
   const { startLoading, stopLoading } = useLoadingContext();
   const [image, setImage] = useState<string>();
@@ -59,7 +57,9 @@ export default function Home() {
   };
 
   return (
-      <VerticalScrollView/>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <VerticalScrollView />
+    </View>
   );
 }
 
@@ -81,8 +81,8 @@ const styles = StyleSheet.create({
   ScrollContainer: {
     paddingTop: 16,
     paddingBottom: 16,
-},
-scrollHeader: {
-    textAlign:'left',
-},
+  },
+  scrollHeader: {
+    textAlign: "left",
+  },
 });

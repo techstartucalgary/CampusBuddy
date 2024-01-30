@@ -1,24 +1,78 @@
 import React from "react";
 import { FlatList, Text, View } from "react-native";
+import EventHomeCard from "~/components/EventHomeCard";
 
-// Define a type for the data items
-interface Item {
-  id: number;
+type Item2 = {
+  id: string;
   title: string;
-}
+  time: string;
+  location: string;
+  image: string;
+};
 
 const VerticalScrollComponent = () => {
-  const data: Item[] = [
-    { id: 1, title: "Item 1" },
-    { id: 2, title: "Item 2" },
-    { id: 3, title: "Item 3" },
-    { id: 4, title: "Item 4" },
-    { id: 5, title: "Item 5" },
+  const data2: Item2[] = [
+    {
+      id: "1",
+      title: "Weekly Bouldering",
+      time: "Jan 4",
+      location: "UofC Kines Block",
+      image: "",
+    },
+    {
+      id: "2",
+      title: "Volleyball Tournament",
+      time: "Jan 14",
+      location: "UofC Kines Block",
+      image: "",
+    },
+    {
+      id: "3",
+      title: "Networking Night",
+      time: "Jan 15",
+      location: "MacHall",
+      image: "",
+    },
+    {
+      id: "4",
+      title: "Networking Night",
+      time: "Jan 15",
+      location: "MacHall",
+      image: "",
+    },
+    {
+      id: "5",
+      title: "Weekly Bouldering",
+      time: "Jan 4",
+      location: "UofC Kines Block",
+      image: "",
+    },
+    {
+      id: "6",
+      title: "Volleyball Tournament",
+      time: "Jan 14",
+      location: "UofC Kines Block",
+      image: "",
+    },
+    {
+      id: "7",
+      title: "Networking Night",
+      time: "Jan 15",
+      location: "MacHall",
+      image: "",
+    },
+    {
+      id: "8",
+      title: "Networking Night",
+      time: "Jan 15",
+      location: "MacHall",
+      image: "",
+    },
   ];
 
   return (
     <FlatList
-      data={data}
+      data={data2}
       renderItem={renderItem}
       keyExtractor={(item) => item.id.toString()}
     />
@@ -26,20 +80,15 @@ const VerticalScrollComponent = () => {
 };
 
 // Update the renderItem function to use the Item type
-const renderItem = ({ item }: { item: Item }) => (
-  <View>
-    <Text
-      style={{
-        fontSize: 20,
-        fontWeight: "bold",
-        color: "white",
-        padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 16,
-      }}
-    >
-      {item.title}
-    </Text>
+const renderItem = ({ item }: { item: Item2 }) => (
+  <View
+    style={{
+      width: 367,
+      height: 168,
+      marginTop: 16,
+    }}
+  >
+    <EventHomeCard eventData={item} />
   </View>
 );
 
