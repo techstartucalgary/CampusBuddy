@@ -21,13 +21,22 @@ export default function HorizontalScrollView() {
   const eventData = sampleEventData;
 
   return (
-    <View key={section.title}>
-      <Text style={{ marginBottom: 16, fontSize: 16 }}>{section.title}</Text>
-      <ScrollView horizontal contentContainerStyle={styles.contentContainer}>
-        {section.items.map((item, index) => (
-          <EventHomeCard key={index} eventData={item} />
-        ))}
-      </ScrollView>
+    <View style={{ width: 367, height: 168, marginTop: 16 }}>
+      {eventData.map((section) => (
+        <View key={section.title}>
+          <Text style={{ marginBottom: 16, fontSize: 16 }}>
+            {section.title}
+          </Text>
+          <ScrollView
+            horizontal
+            contentContainerStyle={styles.contentContainer}
+          >
+            {section.items.map((item, index) => (
+              <EventHomeCard key={index} eventData={item} />
+            ))}
+          </ScrollView>
+        </View>
+      ))}
     </View>
   );
 }
