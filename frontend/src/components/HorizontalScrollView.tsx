@@ -9,12 +9,16 @@ import {
 
  } from "react-native";
  import EventHomeCard from "./EventHomeCard";
+import sampleEventData from "~/components/temp";
 
 type Props = {
     eventData: { title: string; items: { title: string; time: string; location: string; image: string }[] }[];
   };
   
-  export default function HorizontalScrollView({ eventData }: Props) {
+  export default function HorizontalScrollView() {
+    const eventData = sampleEventData
+
+
     return (
       <View style={{width: 367, height: 168, marginTop: 16,}}>
         {eventData.map((section) => (
