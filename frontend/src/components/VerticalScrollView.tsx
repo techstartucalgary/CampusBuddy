@@ -33,41 +33,6 @@ const VerticalScrollComponent = () => {
       location: "MacHall",
       image: "",
     },
-    {
-      id: "4",
-      title: "Networking Night",
-      time: "Jan 15",
-      location: "MacHall",
-      image: "",
-    },
-    {
-      id: "5",
-      title: "Weekly Bouldering",
-      time: "Jan 4",
-      location: "UofC Kines Block",
-      image: "",
-    },
-    {
-      id: "6",
-      title: "Volleyball Tournament",
-      time: "Jan 14",
-      location: "UofC Kines Block",
-      image: "",
-    },
-    {
-      id: "7",
-      title: "Networking Night",
-      time: "Jan 15",
-      location: "MacHall",
-      image: "",
-    },
-    {
-      id: "8",
-      title: "Networking Night",
-      time: "Jan 15",
-      location: "MacHall",
-      image: "",
-    },
   ];
 
   return (
@@ -88,7 +53,9 @@ const renderItem = ({ item }: { item: Item2 }) => (
       marginTop: 16,
     }}
   >
-    <EventHomeCard eventData={item} />
+    <View style={{ width: 367, height: 168, marginTop: 16 }}>
+      {/*{eventData.map((section) => (      ))}*/}
+    </View>
   </View>
 );
 
