@@ -56,11 +56,7 @@ export default function Home() {
     );
   };
 
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <VerticalScrollView />
-    </View>
-  );
+  return <VerticalScrollView />;
 }
 
 const styles = StyleSheet.create({

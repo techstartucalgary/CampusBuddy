@@ -6,7 +6,13 @@ import styled from "styled-components";
 import { View } from "react-native";
 
 type EventHomeCardProps = {
-  eventData: { title: string; time: string; location: string; image: string };
+  eventData: {
+    id: string;
+    title: string;
+    time?: string;
+    location: string;
+    image: string;
+  };
 };
 
 export default function EventHomeCard({ eventData }: EventHomeCardProps) {
