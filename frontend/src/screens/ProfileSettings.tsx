@@ -14,6 +14,7 @@ import {
 import useProfileContext from "~/hooks/useProfileContext";
 import { Ionicons } from "@expo/vector-icons";
 import useThemeContext from "~/hooks/useThemeContext";
+import { useNavigation } from "@react-navigation/native";
 
 const snapPoints = ["45%"];
 
@@ -26,14 +27,21 @@ const settings = [
 ];
 
 export default function ProfileSettings() {
-  const { theme } = useThemeContext();
-  const { bottomSheetModalRef } = useProfileContext();
-  const Backdrop = useCallback(
+    const { theme } = useThemeContext();
+    const { bottomSheetModalRef } = useProfileContext();
+    const Backdrop = useCallback(
     (props: BottomSheetBackdropProps) => (
-      <BottomSheetBackdrop {...props} disappearsOnIndex={-1} />
+        <BottomSheetBackdrop {...props} disappearsOnIndex={-1} />
     ),
     [],
-  );
+    );
+    const { closeModal } = useProfileContext();
+    const navigation = useNavigation<any>();
+
+    const goToSettingsPage = useCallback((setting: string) => {
+        closeModal()
+        navigation.navigate("Settings", { setting })
+    }, [])
 
   return (
     <BottomSheetModal
@@ -46,7 +54,7 @@ export default function ProfileSettings() {
     >
       <View style={styles.contentContainer}>
         {settings.map((setting, i) => (
-          <TouchableOpacity key={i}>
+          <TouchableOpacity key={i} onPress={() => goToSettingsPage(setting)}>
             <View
               style={[
                 styles.settingContainer,
@@ -75,7 +83,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    borderBottomWidth: 0.8
+    borderBottomWidth: 0.8,
   },
   settingText: {
     fontSize: 16,
