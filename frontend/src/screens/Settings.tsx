@@ -24,7 +24,7 @@ export default function Settings() {
             <Text>Search History</Text>
             <Text>Blocked Users</Text>
             <Text>Payments</Text>
-            <Text>Requests</Test>
+            <Text>Requests</Text>
             <TouchableOpacity onPress={() => setShowPopup(false)}>
               <Text style={{ color: 'blue', marginTop: 20 }}>Close</Text>
             </TouchableOpacity>
