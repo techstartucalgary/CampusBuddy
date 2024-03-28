@@ -7,13 +7,19 @@ import {
 import EventMainCard from "~/components/EventMainCard";
 import { ThemedText } from "~/components/ThemedComponents";
 import useAppContext from "~/hooks/useAppContext";
-import useEventsContext from "~/hooks/useEventsContext";
 import { convertUTCToTimeAndDate } from "~/lib/timeFunctions";
-import { generateImageURL } from "~/lib/CDNFunctions";
+import { useQuery } from "@tanstack/react-query";
+import { getSearchPageEvents } from "~/lib/apiFunctions/Events";
+import { SearchPageEventType } from "~/types/Events";
 
 export default function Events() {
   const { dismissKeyboard } = useAppContext();
-  const { searchPageEvents } = useEventsContext();
+
+  let { data: searchPageEvents } = useQuery<SearchPageEventType[]>({
+    queryKey: ["search-page-events"],
+    queryFn: getSearchPageEvents,
+    initialData: [],
+  });
 
   return (
     <TouchableWithoutFeedback onPress={dismissKeyboard}>
@@ -25,17 +31,18 @@ export default function Events() {
             Events
           </ThemedText>
           <View style={{ paddingHorizontal: 20 }}>
-            {searchPageEvents.map((event) => (
-              <EventMainCard
-                key={event.id}
-                id={event.id}
-                title={event.title}
-                date={convertUTCToTimeAndDate(event.startTime)}
-                location={event.location.name}
-                clubName={event.organization?.organizationName}
-                image={event.image}
-              />
-            ))}
+            {searchPageEvents &&
+              searchPageEvents?.map((event) => (
+                <EventMainCard
+                  key={event.id}
+                  id={event.id}
+                  title={event.title}
+                  date={convertUTCToTimeAndDate(event.startTime)}
+                  location={event.location.name}
+                  clubName={event.organization?.organizationName}
+                  image={event.image}
+                />
+              ))}
           </View>
         </Pressable>
       </ScrollView>
